@@ -43,37 +43,23 @@
         <div class="news__card">
           <h2 class="news__title js-in-view fade-in-up">NEWS</h2>
           <div class="news__lists">
-            <a href="" class="news__list news-link">
+          <?php if(have_posts()): ?>
+            <?php while(have_posts()) :?>
+             <?php the_post(); ?>
+            <a href="<?php the_permalink(); ?>" class="news__list news-link">
               <div class="news-link__meta">
-                <time class="news-link__date" datetime="2022-12-15"
-                  >2022年12月15日</time
-                >
-                <div class="news-link__label is-news">お知らせ</div>
+                <time class="news-link__date" datetime="<?php the_time('c')?>"
+                  ><?php the_time('Y/n/j')?></time>
+                  <?php 
+                    $category = get_the_category();
+                    if($category[0]) :?>
+                <div class="news-link__label is-news"><?php echo $category[0]->cat_name; ?></div>
+                <?php endif; ?>
               </div>
-              <h3 class="news-link__title">年末年始について</h3>
+              <h3 class="news-link__title"><?php the_title();?></h3>
             </a>
-            <a href="" class="news__list news-link">
-              <div class="news-link__meta">
-                <time class="news-link__date" datetime="2022-12-10"
-                  >2022年12月10日</time
-                >
-                <div class="news-link__label is-column">コラム</div>
-              </div>
-              <h3 class="news-link__title">
-                あの芸能人にも使っていただいていることが判明しました！もう嬉しすぎて頭が真っ白になってしまいましたが、続きは本文にて！
-              </h3>
-            </a>
-            <a href="" class="news__list news-link">
-              <div class="news-link__meta">
-                <time class="news-link__date" datetime="2022-09-01"
-                  >2022年9月1日</time
-                >
-                <div class="news-link__label is-event">イベント情報</div>
-              </div>
-              <h3 class="news-link__title">
-                幕張メッセにて体験会を実施します！
-              </h3>
-            </a>
+            <?php endwhile;?>
+            <?php endif;?>
           </div>
           <div class="news__link"><a href="">もっとみる</a></div>
         </div>
