@@ -628,15 +628,15 @@ body {
   min-width: 63px;
   text-align: center;
 
-  &.is-news {
+  &.ivent {
     background: #e4780c;
   }
 
-  &.is-column {
+  &.column {
     background: #ecb815;
   }
 
-  &.is-event {
+  &.notice {
     background: #389b47;
   }
 }

@@ -53,7 +53,7 @@
                   <?php 
                     $category = get_the_category();
                     if($category[0]) :?>
-                <div class="news-link__label is-news"><?php echo $category[0]->cat_name; ?></div>
+                <div class="news-link__label is-news <?php echo $category[0]->slug; ?>"><?php echo $category[0]->cat_name; ?></div>
                 <?php endif; ?>
               </div>
               <h3 class="news-link__title"><?php the_title();?></h3>
@@ -168,15 +168,21 @@
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">01</div>
+                    <?php if (get_field('number')):?>
+                    <div class="step-box__head-number"><?php the_field('number');?></div>
+                    <?php endif;?>
                   </div>
                   <div class="step-box__body">
+                  <?php if (get_field('img')):?>
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step1-1-img.png" alt="" />
+                      <img src="<?php echo get_template_directory_uri()?><?php the_field('img');?>" alt="" />
                     </div>
+                    <?php endif;?>
+                    <?php if (get_field('overview')):?>
                     <p class="step-box__text">
-                      起こしたい時間を<br />設定します
+                    <?php the_field('overview');?>
                     </p>
+                    <?php endif;?>
                   </div>
                 </div>
               </div>

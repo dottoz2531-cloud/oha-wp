@@ -583,13 +583,13 @@ body {
   min-width: 63px;
   text-align: center;
 }
-.news-link__label.is-news {
+.news-link__label.ivent {
   background: #e4780c;
 }
-.news-link__label.is-column {
+.news-link__label.column {
   background: #ecb815;
 }
-.news-link__label.is-event {
+.news-link__label.notice {
   background: #389b47;
 }
 
