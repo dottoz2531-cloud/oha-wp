@@ -1,4 +1,4 @@
-<?php get_template_part('template-parts/front-page'); ?>
+<?php get_header(); ?>
 
     <div class="mv">
       <div class="mv__inner">
@@ -25,16 +25,27 @@
     <section class="case">
       <div class="case__inner">
         <h2 class="case__title js-in-view fade-in-up">導入実績</h2>
-        <div class="case__items">
-        <?php if (have_posts()) :?>
- 　　　     <?php while(have_posts()) :?>
-   　　 　   <?php the_post(); ?>
-   　　　　　　<?php if(has_post_thumbnail()):?>
-        　　　<?php the_post_thumbnail(); ?>
-        　　　<?php endif; ?>
-           <?php endwhile; ?>
-   　　   <?php endif; ?>
-        </div>
+        <?php
+         $term_var = get_the_terms($post->ID, 'case');
+         $related_query = new WP_Query(
+         $param = array(
+          'post_type' => 'case',
+          'posts_per_page' => '8',
+          'post__not_in' => array($post->ID),
+          'tax_query' => array(
+          'relation' => 'AND',
+             )
+            )
+          );
+          ?>
+          <?php if ( $related_query->have_posts() ) : ?>
+            <?php while ( $related_query->have_posts() ) : ?>
+              <?php $related_query->the_post(); ?>
+            <div class="case__items">
+              <div class="case__item"><?php the_post_thumbnail(); ?></div>
+            </div>
+            <?php endwhile;?>
+            <?php endif;?>
       </div>
     </section>
 
@@ -42,9 +53,23 @@
       <div class="news__inner inner">
         <div class="news__card">
           <h2 class="news__title js-in-view fade-in-up">NEWS</h2>
+          <?php
+            $term_var = get_the_terms($post->ID, 'post');
+            $related_query = new WP_Query(
+            $param = array(
+             'post_type' => 'post',
+             'posts_per_page' => '3',
+             'post__not_in' => array($post->ID),
+             'tax_query' => array(
+             'relation' => 'AND',
+               )
+            )
+             );
+           ?>
+           
           <div class="news__lists">
-          <?php if(have_posts()): ?>
-            <?php while(have_posts()) :?>
+          <?php if ( $related_query->have_posts() ) : ?>
+            <?php while ( $related_query->have_posts() ) : ?>
              <?php the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="news__list news-link">
               <div class="news-link__meta">
@@ -149,136 +174,7 @@
       </div>
     </section>
 
-    <section id="how-to-use" class="how-to-use">
-      <div class="how-to-use__inner inner">
-        <div class="how-to-use__title">
-          <div class="heading js-in-view fade-in-up">
-            <div class="heading__en">HOW TO USE</div>
-            <h2 class="heading__ja">OHA!の使い方</h2>
-          </div>
-        </div>
-        <div class="how-to-use__boxes">
-          <div class="how-to-use__box">
-            <div class="how-to-use__box-title">
-              誰かを起こす予定があれば<br class="hidden-pc" />起きれる派の人
-              <img src="<?php echo get_template_directory_uri()?>/img/step1-title-img.png" alt="" />
-            </div>
-            <div class="how-to-use__steps">
-              <div class="how-to-use__step js-in-view anim-fade-in-up">
-                <div class="step-box">
-                  <div class="step-box__head">
-                    <div class="step-box__head-text">STEP</div>
-                    <?php if (get_field('number')):?>
-                    <div class="step-box__head-number"><?php the_field('number');?></div>
-                    <?php endif;?>
-                  </div>
-                  <div class="step-box__body">
-                  <?php if (get_field('img')):?>
-                    <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?><?php the_field('img');?>" alt="" />
-                    </div>
-                    <?php endif;?>
-                    <?php if (get_field('overview')):?>
-                    <p class="step-box__text">
-                    <?php the_field('overview');?>
-                    </p>
-                    <?php endif;?>
-                  </div>
-                </div>
-              </div>
-              <div class="how-to-use__step">
-                <div class="step-box">
-                  <div class="step-box__head">
-                    <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">02</div>
-                  </div>
-                  <div class="step-box__body">
-                    <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step1-2-img.png" alt="" />
-                    </div>
-                    <p class="step-box__text">
-                      スマホを枕元に置いて<br />寝ます
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="how-to-use__step">
-                <div class="step-box">
-                  <div class="step-box__head">
-                    <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">03</div>
-                  </div>
-                  <div class="step-box__body">
-                    <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step1-3-img.png" alt="" />
-                    </div>
-                    <p class="step-box__text">
-                      起こすことによって<br />起きることができます
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="how-to-use__box is-type2">
-            <div class="how-to-use__box-title">
-              誰かに起こされれば<br class="hidden-pc" />起きれる派の人
-              <img src="<?php echo get_template_directory_uri()?>/img/step2-title-img.png" alt="" />
-            </div>
-            <div class="how-to-use__steps">
-              <div class="how-to-use__step">
-                <div class="step-box">
-                  <div class="step-box__head">
-                    <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">01</div>
-                  </div>
-                  <div class="step-box__body">
-                    <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step2-1-img.png" alt="" />
-                    </div>
-                    <p class="step-box__text">
-                      起こされたい時間を<br />設定します
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="how-to-use__step">
-                <div class="step-box">
-                  <div class="step-box__head">
-                    <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">02</div>
-                  </div>
-                  <div class="step-box__body">
-                    <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step2-2-img.png" alt="" />
-                    </div>
-                    <p class="step-box__text">
-                      スマホを枕元に置いて<br />寝ます
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="how-to-use__step">
-                <div class="step-box">
-                  <div class="step-box__head">
-                    <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">03</div>
-                  </div>
-                  <div class="step-box__body">
-                    <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step2-3-img.png" alt="" />
-                    </div>
-                    <p class="step-box__text">
-                      起こされることによって<br />起きることができます
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <?php get_template_part('template-parts/front-page'); ?>
 
     <section id="merit" class="merit">
       <div class="merit__inner inner">

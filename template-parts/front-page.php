@@ -1,67 +1,137 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head prefix="og: https://ogp.me/ns#">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
-    <title>OHA!</title>
-    <meta
-      name="description"
-      content="OHA!は、朝起きたい人と朝起こされたい人がランダムにマッチングしちゃう通話アプリです。"
-    />
-    <link rel="icon" href="./favicon.ico" />
-    <meta property="og:title" content="OHA!" />
-    <meta
-      property="og:description"
-      content="OHA!は、朝起きたい人と朝起こされたい人がランダムにマッチングしちゃう通話アプリです。"
-    />
-    <meta property="og:type" content="website" />
-    <!-- 案件では実際のURLを入れる -->
-    <meta property="og:url" content="https://example.com/" />
-    <!-- 案件では実際のURLを入れる -->
-    <meta property="og:image" content="https://example.com/img/ogp.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <?php wp_head(); ?>
-  </head>
-
-  <body>
-    <header class="header">
-      <div class="header__inner">
-        <h1 class="header__logo">
-          <a href=""><img src="<?php echo get_template_directory_uri()?>/img/logo.png" alt="OHA!" /></a>
-        </h1>
-        <nav class="header__nav">
-          <a href="#about" class="header__link">サービスについて</a>
-          <a href="#how-to-use" class="header__link">使い方</a>
-          <a href="#merit" class="header__link">メリット</a>
-          <a href="#contact" class="header__button button">お問い合わせ</a>
-        </nav>
-        <button id="js-drawer-icon" class="header__open drawer-icon">
-          <span class="drawer-icon__bar"></span>
-          <span class="drawer-icon__bar"></span>
-          <span class="drawer-icon__bar"></span>
-        </button>
-      </div>
-    </header>
-
-    <div id="js-drawer-content" class="drawer-content">
-      <nav class="drawer-content__menu">
-        <a href="#about" class="drawer-content__link">サービスについて</a>
-        <a href="#how-to-use" class="drawer-content__link">使い方</a>
-        <a href="#merit" class="drawer-content__link">メリット</a>
-        <div class="drawer-content__button">
-          <a href="#contact" class="button">お問い合わせ</a>
+<section id="how-to-use" class="how-to-use">
+      <div class="how-to-use__inner inner">
+        <div class="how-to-use__title">
+          <div class="heading js-in-view fade-in-up">
+            <div class="heading__en">HOW TO USE</div>
+            <h2 class="heading__ja">OHA!の使い方</h2>
+          </div>
         </div>
-      </nav>
-    </div>
+        <div class="how-to-use__boxes">
+          <div class="how-to-use__box">
+            <div class="how-to-use__box-title">
+              誰かを起こす予定があれば<br class="hidden-pc" />起きれる派の人
+              <img src="<?php echo get_template_directory_uri()?>/img/step1-title-img.png" alt="" />
+            </div>
+            <div class="how-to-use__steps">
+              <div class="how-to-use__step js-in-view anim-fade-in-up">
+                <div class="step-box">
+                  <div class="step-box__head">
+                    <div class="step-box__head-text">STEP</div>
+                    <?php if (get_field('number','88')):?>
+                    <div class="step-box__head-number"><?php the_field('number','88');?></div>
+                    <?php endif;?>
+                  </div>
+                  <div class="step-box__body">
+                  <?php if (get_field('img','88')):?>
+                    <div class="step-box__image">
+                      <img src="<?php echo get_template_directory_uri()?><?php the_field('img','88');?>" alt="" />
+                    </div>
+                    <?php endif;?>
+                    <?php if (get_field('overview','88')):?>
+                    <p class="step-box__text">
+                    <?php the_field('overview','88');?>
+                    </p>
+                    <?php endif;?>
+                  </div>
+                </div>
+              </div>
+
+              <div class="how-to-use__step">
+                <div class="step-box">
+                  <div class="step-box__head">
+                    <div class="step-box__head-text">STEP</div>
+                    <?php if (get_field('number','95')):?>
+                    <div class="step-box__head-number"><?php the_field('number','95');?></div>
+                    <?php endif;?>
+                  </div>
+                  <div class="step-box__body">
+                  <?php if (get_field('img','95')):?>
+                    <div class="step-box__image">
+                      <img src="<?php echo get_template_directory_uri()?><?php the_field('img','95');?>" alt="" />
+                    </div>
+                    <?php endif;?>
+                    <?php if (get_field('overview','95')):?>
+                    <p class="step-box__text">
+                    <?php the_field('overview','95');?>
+                    </p>
+                    <?php endif;?>
+                  </div>
+                </div>
+              </div>
+              <div class="how-to-use__step">
+                <div class="step-box">
+                  <div class="step-box__head">
+                    <div class="step-box__head-text">STEP</div>
+                    <div class="step-box__head-number">03</div>
+                  </div>
+                  <div class="step-box__body">
+                    <div class="step-box__image">
+                      <img src="<?php echo get_template_directory_uri()?>/img/step1-3-img.png" alt="" />
+                    </div>
+                    <p class="step-box__text">
+                      起こすことによって<br />起きることができます
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="how-to-use__box is-type2">
+            <div class="how-to-use__box-title">
+              誰かに起こされれば<br class="hidden-pc" />起きれる派の人
+              <img src="<?php echo get_template_directory_uri()?>/img/step2-title-img.png" alt="" />
+            </div>
+            <div class="how-to-use__steps">
+              <div class="how-to-use__step">
+                <div class="step-box">
+                  <div class="step-box__head">
+                    <div class="step-box__head-text">STEP</div>
+                    <div class="step-box__head-number">01</div>
+                  </div>
+                  <div class="step-box__body">
+                    <div class="step-box__image">
+                      <img src="<?php echo get_template_directory_uri()?>/img/step2-1-img.png" alt="" />
+                    </div>
+                    <p class="step-box__text">
+                      起こされたい時間を<br />設定します
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="how-to-use__step">
+                <div class="step-box">
+                  <div class="step-box__head">
+                    <div class="step-box__head-text">STEP</div>
+                    <div class="step-box__head-number">02</div>
+                  </div>
+                  <div class="step-box__body">
+                    <div class="step-box__image">
+                      <img src="<?php echo get_template_directory_uri()?>/img/step2-2-img.png" alt="" />
+                    </div>
+                    <p class="step-box__text">
+                      スマホを枕元に置いて<br />寝ます
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="how-to-use__step">
+                <div class="step-box">
+                  <div class="step-box__head">
+                    <div class="step-box__head-text">STEP</div>
+                    <div class="step-box__head-number">03</div>
+                  </div>
+                  <div class="step-box__body">
+                    <div class="step-box__image">
+                      <img src="<?php echo get_template_directory_uri()?>/img/step2-3-img.png" alt="" />
+                    </div>
+                    <p class="step-box__text">
+                      起こされることによって<br />起きることができます
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
