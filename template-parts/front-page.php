@@ -22,9 +22,9 @@
                     <?php endif;?>
                   </div>
                   <div class="step-box__body">
-                  <?php if (get_field('img','88')):?>
+                  <?php if (get_field('image','88')):?>
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?><?php the_field('img','88');?>" alt="" />
+                      <img src="<?php echo get_template_directory_uri()?><?php the_field('image','88');?>" alt="" />
                     </div>
                     <?php endif;?>
                     <?php if (get_field('overview','88')):?>
@@ -45,9 +45,9 @@
                     <?php endif;?>
                   </div>
                   <div class="step-box__body">
-                  <?php if (get_field('img','95')):?>
+                  <?php if (get_field('image','95')):?>
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?><?php the_field('img','95');?>" alt="" />
+                      <img src="<?php echo get_template_directory_uri()?><?php the_field('image','95');?>" alt="" />
                     </div>
                     <?php endif;?>
                     <?php if (get_field('overview','95')):?>

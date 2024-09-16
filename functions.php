@@ -9,6 +9,7 @@ add_action("after_setup_theme", "my_setup");
 
 
 function my_script_init() {
+  wp_enqueue_script('jquery');
   wp_enqueue_style("reset-css", get_template_directory_uri() . "/css/reset.css");
   wp_enqueue_style("my", get_template_directory_uri() . "/css/style.css", array(), filemtime(get_theme_file_path('css/style.css')), "all");
   wp_enqueue_style( 'swiper-css', get_template_directory_uri() . '/css/lib/swiper-bundle.min.css', array(), '10.2.0' );

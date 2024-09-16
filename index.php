@@ -30,6 +30,7 @@
          $related_query = new WP_Query(
          $param = array(
           'post_type' => 'case',
+          'orderby' => 'rand',
           'posts_per_page' => '8',
           'post__not_in' => array($post->ID),
           'tax_query' => array(
@@ -59,11 +60,7 @@
             $param = array(
              'post_type' => 'post',
              'posts_per_page' => '3',
-             'post__not_in' => array($post->ID),
-             'tax_query' => array(
-             'relation' => 'AND',
                )
-            )
              );
            ?>
            
