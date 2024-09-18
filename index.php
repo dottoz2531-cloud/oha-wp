@@ -39,14 +39,16 @@
             )
           );
           ?>
-          <?php if ( $related_query->have_posts() ) : ?>
+            <div class="case__items">
+            <?php if ( $related_query->have_posts() ) : ?>
             <?php while ( $related_query->have_posts() ) : ?>
               <?php $related_query->the_post(); ?>
-            <div class="case__items">
               <div class="case__item"><?php the_post_thumbnail(); ?></div>
+              <?php endwhile;?>
+              <?php endif;?>
+              <?php wp_reset_postdata(); ?>
             </div>
-            <?php endwhile;?>
-            <?php endif;?>
+           
       </div>
     </section>
 
@@ -66,7 +68,7 @@
            
           <div class="news__lists">
           <?php if ( $related_query->have_posts() ) : ?>
-            <?php while ( $related_query->have_posts() ) : ?>
+            <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
              <?php the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="news__list news-link">
               <div class="news-link__meta">
@@ -82,6 +84,7 @@
             </a>
             <?php endwhile;?>
             <?php endif;?>
+            <?php wp_reset_postdata(); ?>
           </div>
           <div class="news__link"><a href="">もっとみる</a></div>
         </div>
