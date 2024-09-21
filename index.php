@@ -185,21 +185,21 @@
           </div>
         </div>
         <div class="merit__boxes">
-          <div class="merit__box">
-            <div class="merit-box">
+        <div class="merit__box">
+            <div class="merit-box is-reverse">
               <div class="merit-box__content">
                 <div class="merit-box__image">
-                  <img src="<?php echo get_template_directory_uri()?>/img/merit1-img.png" alt="" />
+                  <img src="<?php the_field('image','124');?>" alt="" />
                 </div>
                 <div class="merit-box__body">
                   <h3 class="merit-box__head">
-                    <span class="merit-box__number">1</span>
+                    <span class="merit-box__number"><?php the_field('number','124');?></span>
                     <span class="merit-box__title">
-                      通りすがりに猫が<br />挨拶してくれるようになる
+                    <?php the_field('title','124');?>
                     </span>
                   </h3>
                   <p class="merit-box__text">
-                    偶然の可能性も高いですが、OHA!を使うようになってから、やたらと猫が挨拶してくれるようになった、というお話をいただきます。とはいえ、自惚れすぎてはいけません。挨拶されたからといって一方的に話しかけ続けてしまうと気まぐれ猫ちゃんにうんざりされる上に周りの目も冷ややかです。
+                  <?php the_field('overview','124');?>
                   </p>
                 </div>
               </div>
@@ -209,43 +209,37 @@
             <div class="merit-box is-reverse">
               <div class="merit-box__content">
                 <div class="merit-box__image">
-                  <img src="<?php echo get_template_directory_uri()?>/img/merit2-img.png" alt="" />
+                  <img src="<?php the_field('image','127');?>" alt="" />
                 </div>
                 <div class="merit-box__body">
                   <h3 class="merit-box__head">
-                    <span class="merit-box__number">2</span>
+                    <span class="merit-box__number"><?php the_field('number','127');?></span>
                     <span class="merit-box__title">
-                      商店街の福引で<br />3等のティッシュボックスが<br
-                        class="hidden-pc"
-                      />当たる
+                    <?php the_field('title','127');?>
                     </span>
                   </h3>
                   <p class="merit-box__text">
-                    OHA!を使うことで、どういった因果関係なのか、ちょっと運もよくなります。あなたの街には商店街があるかわかりませんが、もしあればチャンスです。買い物をして、福引に挑んでみましょう。3等のティッシュボックスが当たること間違いなしです。<br />
-                    もう景品のポケットティッシュで涙を拭う、なんてことはないのです。
+                  <?php the_field('overview','127');?>
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="merit__box">
-            <div class="merit-box">
+            <div class="merit-box is-reverse">
               <div class="merit-box__content">
                 <div class="merit-box__image">
-                  <img src="<?php echo get_template_directory_uri()?>/img/merit3-img.png" alt="" />
+                  <img src="<?php the_field('image','128');?>" alt="" />
                 </div>
                 <div class="merit-box__body">
                   <h3 class="merit-box__head">
-                    <span class="merit-box__number">3</span>
+                    <span class="merit-box__number"><?php the_field('number','128');?></span>
                     <span class="merit-box__title">
-                      掃除をしていたら、<br />過去に自分が隠した<br
-                        class="hidden-pc"
-                      />へそくりが出てきた
+                    <?php the_field('title','128');?>
                     </span>
                   </h3>
                   <p class="merit-box__text">
-                    自分が隠したへそくりを自分が発見するのはプラスマイナス0ですが、なんだか嬉しいものですよね。過去の自分よ、素敵なサプライズをありがとう。<br />
-                    へそくりをしたことがない方にとっては申し訳ないですがこのイベントは起こりませんのでアプリ使用の再検討をおすすめします。
+                  <?php the_field('overview','128');?>
                   </p>
                 </div>
               </div>
@@ -519,12 +513,12 @@
                 </div>
               </div>
               <div class="contact__field">
-                <div class="form-field">
+                <div class="form-field mb30">
                   <div class="form-field__head">
                     <label for="your-age" class="form-field__label">年代</label>
                     <span class="form-field__tag is-option">任意</span>
                   </div>
-                  <div class="form-field__item">
+                  <div class="form-field__item ">
                     <select name="your-age" id="your-age" class="form-select">
                       <option value="">選択してください</option>
                       <option value="">10代</option>

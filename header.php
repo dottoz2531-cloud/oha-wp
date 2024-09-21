@@ -64,9 +64,16 @@
 
     <div id="js-drawer-content" class="drawer-content">
       <nav class="drawer-content__menu">
-        <a href="#about" class="drawer-content__link">サービスについて</a>
-        <a href="#how-to-use" class="drawer-content__link">使い方</a>
-        <a href="#merit" class="drawer-content__link">メリット</a>
+      <?php
+			          wp_nav_menu(
+				        array(
+					     'depth' => 1,
+					     'theme_location' => 'global',
+					     'container' => '',
+					     'menu_class' => 'header-list'
+				     )
+			     )
+			     ?>
         <div class="drawer-content__button">
           <a href="#contact" class="button">お問い合わせ</a>
         </div>

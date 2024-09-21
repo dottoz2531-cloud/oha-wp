@@ -147,13 +147,13 @@ body {
   }
 }
 
-.header__link {
+.menu-item {
   font-weight: 700;
   letter-spacing: 0.48px;
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
-.header__link:hover {
+.menu-item:hover {
   color: #f5810e;
 }
 
@@ -1574,13 +1574,13 @@ body {
   padding-bottom: 60px;
   background: url(../img/section-bg.png) repeat top left/529px auto;
 }
+
 @media screen and (min-width: 768px) {
   .contact {
     padding-top: 100px;
     padding-bottom: 100px;
   }
 }
-
 .contact__box {
   border-radius: 30px;
   background: #fff;
@@ -1614,6 +1614,10 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 30px;
+}
+
+.mb30 {
+  margin-block: 30px;
 }
 
 .contact__privacy {
@@ -1688,7 +1692,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .form-field__item {
-    margin-top: 0;
+    margin-block: 0px;
   }
 }
 

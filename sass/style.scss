@@ -170,7 +170,7 @@ body {
   }
 }
 
-.header__link {
+.menu-item {
   font-weight: 700;
   letter-spacing: 0.48px;
   transition: color 0.3s;
@@ -1593,12 +1593,14 @@ body {
   }
 }
 
+//contact
 .contact {
   padding-top: 60px;
   padding-bottom: 60px;
-  background: url(../img/section-bg.png) repeat top left / 529px auto;
-
-  @include mq(pc) {
+  background: url(../img/section-bg.png) repeat top left/529px auto;
+}
+@media screen and (min-width: 768px) {
+  .contact {
     padding-top: 100px;
     padding-bottom: 100px;
   }
@@ -1636,6 +1638,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.mb30{
+  margin-block: 30px;
 }
 
 .contact__field {
@@ -1700,7 +1706,8 @@ body {
   flex-grow: 1;
 
   @include mq(pc) {
-    margin-top: 0;
+    margin-block: 0px;
+    
   }
 
   // [type="text"],

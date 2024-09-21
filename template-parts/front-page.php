@@ -17,21 +17,15 @@
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <?php if (get_field('number','88')):?>
                     <div class="step-box__head-number"><?php the_field('number','88');?></div>
-                    <?php endif;?>
                   </div>
                   <div class="step-box__body">
-                  <?php if (get_field('image','88')):?>
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?><?php the_field('image','88');?>" alt="" />
+                      <img src="<?php get_field('image','88'); ?>" alt="" />
                     </div>
-                    <?php endif;?>
-                    <?php if (get_field('overview','88')):?>
                     <p class="step-box__text">
                     <?php the_field('overview','88');?>
                     </p>
-                    <?php endif;?>
                   </div>
                 </div>
               </div>
@@ -40,42 +34,38 @@
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <?php if (get_field('number','95')):?>
                     <div class="step-box__head-number"><?php the_field('number','95');?></div>
-                    <?php endif;?>
                   </div>
                   <div class="step-box__body">
-                  <?php if (get_field('image','95')):?>
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?><?php the_field('image','95');?>" alt="" />
+                      <img src="<?php get_field('image','95');?>" alt="" />
                     </div>
-                    <?php endif;?>
-                    <?php if (get_field('overview','95')):?>
                     <p class="step-box__text">
                     <?php the_field('overview','95');?>
                     </p>
-                    <?php endif;?>
                   </div>
                 </div>
               </div>
+
               <div class="how-to-use__step">
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">03</div>
+                    <div class="step-box__head-number"><?php the_field('number','104');?></div>
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step1-3-img.png" alt="" />
+                      <img src="<?php get_field('image','104');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                      起こすことによって<br />起きることができます
+                    <?php the_field('overview','104');?>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          
           <div class="how-to-use__box is-type2">
             <div class="how-to-use__box-title">
               誰かに起こされれば<br class="hidden-pc" />起きれる派の人
@@ -86,14 +76,14 @@
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">01</div>
+                    <div class="step-box__head-number"><?php the_field('number','106');?></div>
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step2-1-img.png" alt="" />
+                      <img src="<?php get_field('image','106');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                      起こされたい時間を<br />設定します
+                    <?php the_field('overview','106');?>
                     </p>
                   </div>
                 </div>
@@ -102,14 +92,14 @@
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">02</div>
+                    <div class="step-box__head-number"><?php the_field('number','107');?></div>
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step2-2-img.png" alt="" />
+                      <img src="<?php get_field('image','107');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                      スマホを枕元に置いて<br />寝ます
+                    <?php the_field('overview','107');?>
                     </p>
                   </div>
                 </div>
@@ -118,14 +108,14 @@
                 <div class="step-box">
                   <div class="step-box__head">
                     <div class="step-box__head-text">STEP</div>
-                    <div class="step-box__head-number">03</div>
+                    <div class="step-box__head-number"><?php the_field('number','108');?></div>
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php echo get_template_directory_uri()?>/img/step2-3-img.png" alt="" />
+                      <img src="<?php get_field('image','108');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                      起こされることによって<br />起きることができます
+                    <?php the_field('overview','108');?>
                     </p>
                   </div>
                 </div>
