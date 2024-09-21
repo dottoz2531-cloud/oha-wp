@@ -280,22 +280,22 @@
             </thead>
             <tbody>
               <tr>
-                <th>仲介手数料</th>
-                <td>なし！</td>
-                <td>希望時間に起きれた毎に<br />100円</td>
-                <td>希望時間に起きれた毎に<br />40000ペコ</td>
+                <th><?php the_field('title','150');?></th>
+                <td><?php the_field('whether','150');?></td>
+                <td>希望時間に起きれた毎に<br /><?php the_field('fee','150');?></td>
+                <td>希望時間に起きれた毎に<br /><?php the_field('popint','150');?></td>
               </tr>
               <tr>
-                <th>登録料</th>
-                <td>なし！</td>
-                <td>希望時間に起きれた毎に<br />100円</td>
-                <td>希望時間に起きれた毎に<br />40000ペコ</td>
+                <th><?php the_field('title','153');?></th>
+                <td><?php the_field('whether','153');?></td>
+                <td>希望時間に起きれた毎に<br /><?php the_field('fee','153');?></td>
+                <td>希望時間に起きれた毎に<br /><?php the_field('popint','153');?></td>
               </tr>
               <tr>
-                <th>年間皆勤賞特典</th>
-                <td>あり！</td>
-                <td>なし</td>
-                <td>なし</td>
+                <th><?php the_field('title','156');?></th>
+                <td><?php the_field('whether','156');?></td>
+                <td><?php the_field('fee','156');?></td>
+                <td><?php the_field('popint','156');?></td>
               </tr>
             </tbody>
           </table>
@@ -317,13 +317,13 @@
             <button type="button" class="qa-box__head js-accordion">
               <span class="qa-box__head-icon">Q</span>
               <span class="qa-box__head-text"
-                >僕があまりにも起きない場合、相手に怒られることはあるのでしょうか？怖くて朝も起きられません。</span
+                ><?php the_field('question','140');?></span
               >
             </button>
             <div class="qa-box__body" style="display: block">
               <div class="qa-box__a">
                 <span class="qa-box__a-icon">A</span>
-                <span class="qa-box__a-text">残念ながら、相手によります。</span>
+                <span class="qa-box__a-text"><?php the_field('answer','140');?></span>
               </div>
             </div>
           </div>
@@ -331,14 +331,14 @@
             <button type="button" class="qa-box__head js-accordion">
               <span class="qa-box__head-icon">Q</span>
               <span class="qa-box__head-text"
-                >今現在の登録者は何人ですか？</span
+                ><?php the_field('question','143');?></span
               >
             </button>
             <div class="qa-box__body">
               <div class="qa-box__a">
                 <span class="qa-box__a-icon">A</span>
                 <span class="qa-box__a-text"
-                  >現在の登録者は150万人(から149.998万人を引いた人数)です。この文を2行にしたいのでもう一度言います。現在の登録者は150万人(から149.998万人を引いた人数)です！</span
+                  ><?php the_field('answer','143');?></span
                 >
               </div>
             </div>
@@ -347,14 +347,14 @@
             <button type="button" class="qa-box__head js-accordion">
               <span class="qa-box__head-icon">Q</span>
               <span class="qa-box__head-text"
-                >アプリをインストールして使う妄想だけで朝起きられるようになりました！結局インストールはしてないですが、ありがとうございます！</span
+                ><?php the_field('question','145');?></span
               >
             </button>
             <div class="qa-box__body">
               <div class="qa-box__a">
                 <span class="qa-box__a-icon">A</span>
                 <span class="qa-box__a-text"
-                  >それはよかったです！しかしインストールはしてほしかった！！！</span
+                  ><?php the_field('answer','145');?></span
                 >
               </div>
             </div>
