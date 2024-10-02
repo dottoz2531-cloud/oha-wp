@@ -170,6 +170,14 @@ body {
   }
 }
 
+.header-list {
+  @include mq(pc) {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
 .menu-item {
   font-weight: 700;
   letter-spacing: 0.48px;
@@ -1640,7 +1648,7 @@ body {
   gap: 30px;
 }
 
-.mb30{
+.mb30 {
   margin-block: 30px;
 }
 
@@ -1707,7 +1715,6 @@ body {
 
   @include mq(pc) {
     margin-block: 0px;
-    
   }
 
   // [type="text"],

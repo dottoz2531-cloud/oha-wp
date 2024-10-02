@@ -69,7 +69,6 @@
           <div class="news__lists">
           <?php if ( $related_query->have_posts() ) : ?>
             <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
-             <?php the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="news__list news-link">
               <div class="news-link__meta">
                 <time class="news-link__date" datetime="<?php the_time('c')?>"
@@ -174,8 +173,9 @@
       </div>
     </section>
 
+    
+   
     <?php get_template_part('template-parts/how-to-page'); ?>
-
     <section id="merit" class="merit">
       <div class="merit__inner inner">
         <div class="merit__title">
@@ -248,7 +248,7 @@
         </div>
       </div>
     </section>
-
+    
     <div class="cta">
       <div class="cta__inner inner">
         <p class="cat__text">

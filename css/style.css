@@ -147,6 +147,18 @@ body {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .header-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 40px;
+  }
+}
+
 .menu-item {
   font-weight: 700;
   letter-spacing: 0.48px;

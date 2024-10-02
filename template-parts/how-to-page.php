@@ -21,10 +21,10 @@
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php get_field('image','88'); ?>" alt="" />
+                      <img src="<?php the_field('image','88'); ?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                    <?php the_field('overview','88');?>
+                    <?php echo nl2br(get_field('overview','88'));?>
                     </p>
                   </div>
                 </div>
@@ -38,10 +38,10 @@
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php get_field('image','95');?>" alt="" />
+                      <img src="<?php the_field('image','95');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                    <?php the_field('overview','95');?>
+                    <?php echo nl2br(get_field('overview','95'));?>
                     </p>
                   </div>
                 </div>
@@ -55,10 +55,10 @@
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php get_field('image','104');?>" alt="" />
+                      <img src="<?php the_field('image','104');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                    <?php the_field('overview','104');?>
+                    <?php echo nl2br(get_field('overview','104'));?>
                     </p>
                   </div>
                 </div>
@@ -80,10 +80,10 @@
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php get_field('image','106');?>" alt="" />
+                      <img src="<?php the_field('image','106');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                    <?php the_field('overview','106');?>
+                    <?php echo nl2br(get_field('overview','106'));?>
                     </p>
                   </div>
                 </div>
@@ -96,10 +96,10 @@
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php get_field('image','107');?>" alt="" />
+                      <img src="<?php the_field('image','107');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                    <?php the_field('overview','107');?>
+                    <?php echo nl2br(get_field('overview','107'));?>
                     </p>
                   </div>
                 </div>
@@ -112,10 +112,10 @@
                   </div>
                   <div class="step-box__body">
                     <div class="step-box__image">
-                      <img src="<?php get_field('image','108');?>" alt="" />
+                      <img src="<?php the_field('image','108');?>" alt="" />
                     </div>
                     <p class="step-box__text">
-                    <?php the_field('overview','108');?>
+                    <?php echo nl2br(get_field('overview','108'));?>
                     </p>
                   </div>
                 </div>
