@@ -1,94 +1,86 @@
 <?php get_header(); ?>
 
-    <div class="mv">
-      <div class="mv__inner">
-        <div class="mv__content">
-          <p class="mv__lead">
-            <span class="mv__lead1">「めざめる」の日常を</span>
-            <span class="mv__lead2">もっとおもしろく。</span>
-          </p>
-          <p class="mv__description">
-            OHA!は、朝起きたい人と<br />朝起こされたい人が<br />ランダムにマッチングしちゃう<br />通話アプリです。
-          </p>
-          <div class="mv__button">
-            <a href="#contact" class="button button--type2"
-              >アプリダウンロード</a
-            >
-          </div>
-        </div>
-        <div class="mv__image">
-          <img src="<?php echo get_template_directory_uri()?>/img/first-view-img.png" alt="" />
-        </div>
+<div class="mv">
+  <div class="mv__inner">
+    <div class="mv__content">
+      <p class="mv__lead">
+        <span class="mv__lead1">「めざめる」の日常を</span>
+        <span class="mv__lead2">もっとおもしろく。</span>
+      </p>
+      <p class="mv__description">
+        OHA!は、朝起きたい人と<br />朝起こされたい人が<br />ランダムにマッチングしちゃう<br />通話アプリです。
+      </p>
+      <div class="mv__button">
+        <a href="#contact" class="button button--type2">アプリダウンロード</a>
       </div>
     </div>
+    <div class="mv__image">
+      <img
+        src="<?php echo get_template_directory_uri()?>/img/first-view-img.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
 
-    <section class="case">
-      <div class="case__inner">
-        <h2 class="case__title js-in-view fade-in-up">導入実績</h2>
-        <?php
-         $term_var = get_the_terms($post->ID, 'case');
-         $related_query = new WP_Query(
-         $param = array(
-          'post_type' => 'case',
-          'orderby' => 'rand',
-          'posts_per_page' => '8',
-          'post__not_in' => array($post->ID),
-          'tax_query' => array(
-          'relation' => 'AND',
-             )
-            )
-          );
-          ?>
-            <div class="case__items">
-            <?php if ( $related_query->have_posts() ) : ?>
-            <?php while ( $related_query->have_posts() ) : ?>
-              <?php $related_query->the_post(); ?>
-              <div class="case__item"><?php the_post_thumbnail(); ?></div>
-              <?php endwhile;?>
-              <?php endif;?>
-              <?php wp_reset_postdata(); ?>
+<section class="case">
+  <div class="case__inner">
+    <h2 class="case__title js-in-view fade-in-up">導入実績</h2>
+    <?php
+       $term_var = get_the_terms($post->ID, 'case'); $related_query = new
+    WP_Query( $param = array( 'post_type' => 'case', 'orderby' => 'rand',
+    'posts_per_page' => '8', 'post__not_in' => array($post->ID), 'tax_query' =>
+    array( 'relation' => 'AND', ) ) ); ?>
+    <div class="case__items">
+      <?php if ( $related_query->have_posts() ) : ?>
+      <?php while ( $related_query->have_posts() ) : ?>
+      <?php $related_query->the_post(); ?>
+      <div class="case__item"><?php the_post_thumbnail(); ?></div>
+      <?php endwhile;?>
+      <?php endif;?>
+      <?php wp_reset_postdata(); ?>
+    </div>
+  </div>
+</section>
+
+<section class="news">
+  <div class="news__inner inner">
+    <div class="news__card">
+      <h2 class="news__title js-in-view fade-in-up">NEWS</h2>
+      <?php
+          $term_var = get_the_terms($post->ID, 'post'); $related_query = new
+      WP_Query( $param = array( 'post_type' => 'post', 'posts_per_page' => '3',
+      ) ); ?>
+
+      <div class="news__lists">
+        <?php if ( $related_query->have_posts() ) : ?>
+        <?php while ( $related_query->have_posts() ) :
+        $related_query->the_post(); ?>
+        <a href="<?php the_permalink(); ?>" class="news__list news-link">
+          <div class="news-link__meta">
+            <time class="news-link__date" datetime="<?php the_time('c')?>"
+              ><?php the_time('Y/n/j')?></time
+            >
+            <?php 
+                  $category = get_the_category();
+                  if($category[0]) :?>
+            <div
+              class="news-link__label is-news <?php echo $category[0]->slug; ?>"
+            >
+              <?php echo $category[0]->cat_name; ?>
             </div>
-           
-      </div>
-    </section>
-
-    <section class="news">
-      <div class="news__inner inner">
-        <div class="news__card">
-          <h2 class="news__title js-in-view fade-in-up">NEWS</h2>
-          <?php
-            $term_var = get_the_terms($post->ID, 'post');
-            $related_query = new WP_Query(
-            $param = array(
-             'post_type' => 'post',
-             'posts_per_page' => '3',
-               )
-             );
-           ?>
-           
-          <div class="news__lists">
-          <?php if ( $related_query->have_posts() ) : ?>
-            <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
-            <a href="<?php the_permalink(); ?>" class="news__list news-link">
-              <div class="news-link__meta">
-                <time class="news-link__date" datetime="<?php the_time('c')?>"
-                  ><?php the_time('Y/n/j')?></time>
-                  <?php 
-                    $category = get_the_category();
-                    if($category[0]) :?>
-                <div class="news-link__label is-news <?php echo $category[0]->slug; ?>"><?php echo $category[0]->cat_name; ?></div>
-                <?php endif; ?>
-              </div>
-              <h3 class="news-link__title"><?php the_title();?></h3>
-            </a>
-            <?php endwhile;?>
-            <?php endif;?>
-            <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
           </div>
-          <div class="news__link"><a href="">もっとみる</a></div>
-        </div>
+          <h3 class="news-link__title"><?php the_title();?></h3>
+        </a>
+        <?php endwhile;?>
+        <?php endif;?>
+        <?php wp_reset_postdata(); ?>
       </div>
-    </section>
+      <div class="news__link"><a href="">もっとみる</a></div>
+    </div>
+  </div>
+</section>
 
     <div id="about" class="about">
       <div class="about__inner">
