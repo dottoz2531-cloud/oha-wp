@@ -30,4 +30,5 @@ function my_script_init() {
 
 add_filter('get_the_archive_title', 'my_archive_title');
 
+
 ?>

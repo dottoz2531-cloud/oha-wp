@@ -1,87 +1,96 @@
 <?php get_header(); ?>
 
-<div class="mv">
-  <div class="mv__inner">
-    <div class="mv__content">
-      <p class="mv__lead">
-        <span class="mv__lead1">「めざめる」の日常を</span>
-        <span class="mv__lead2">もっとおもしろく。</span>
-      </p>
-      <p class="mv__description">
-        OHA!は、朝起きたい人と<br />朝起こされたい人が<br />ランダムにマッチングしちゃう<br />通話アプリです。
-      </p>
-      <div class="mv__button">
-        <a href="#contact" class="button button--type2">アプリダウンロード</a>
-      </div>
-    </div>
-    <div class="mv__image">
-      <img
-        src="<?php echo get_template_directory_uri()?>/img/first-view-img.png"
-        alt=""
-      />
-    </div>
-  </div>
-</div>
-
-<section class="case">
-  <div class="case__inner">
-    <h2 class="case__title js-in-view fade-in-up">導入実績</h2>
-    <?php
-       $term_var = get_the_terms($post->ID, 'case'); $related_query = new
-    WP_Query( $param = array( 'post_type' => 'case', 'orderby' => 'rand',
-    'posts_per_page' => '8', 'post__not_in' => array($post->ID), 'tax_query' =>
-    array( 'relation' => 'AND', ) ) ); ?>
-    <div class="case__items">
-      <?php if ( $related_query->have_posts() ) : ?>
-      <?php while ( $related_query->have_posts() ) : ?>
-      <?php $related_query->the_post(); ?>
-      <div class="case__item"><?php the_post_thumbnail(); ?></div>
-      <?php endwhile;?>
-      <?php endif;?>
-      <?php wp_reset_postdata(); ?>
-    </div>
-  </div>
-</section>
-
-<section class="news">
-  <div class="news__inner inner">
-    <div class="news__card">
-      <h2 class="news__title js-in-view fade-in-up">NEWS</h2>
-      <?php
-          $term_var = get_the_terms($post->ID, 'post'); $related_query = new
-      WP_Query( $param = array( 'post_type' => 'post', 'posts_per_page' => '3',
-      ) ); ?>
-
-      <div class="news__lists">
-        <?php if ( $related_query->have_posts() ) : ?>
-        <?php while ( $related_query->have_posts() ) :
-        $related_query->the_post(); ?>
-        <a href="<?php the_permalink(); ?>" class="news__list news-link">
-          <div class="news-link__meta">
-            <time class="news-link__date" datetime="<?php the_time('c')?>"
-              ><?php the_time('Y/n/j')?></time
+    <div class="mv">
+      <div class="mv__inner">
+        <div class="mv__content">
+          <p class="mv__lead">
+            <span class="mv__lead1">「めざめる」の日常を</span>
+            <span class="mv__lead2">もっとおもしろく。</span>
+          </p>
+          <p class="mv__description">
+            OHA!は、朝起きたい人と<br />朝起こされたい人が<br />ランダムにマッチングしちゃう<br />通話アプリです。
+          </p>
+          <div class="mv__button">
+            <a href="#contact" class="button button--type2"
+              >アプリダウンロード</a
             >
-            <?php 
-                  $category = get_the_category();
-                  if($category[0]) :?>
-            <div
-              class="news-link__label is-news <?php echo $category[0]->slug; ?>"
-            >
-              <?php echo $category[0]->cat_name; ?>
-            </div>
-            <?php endif; ?>
           </div>
-          <h3 class="news-link__title"><?php the_title();?></h3>
-        </a>
-        <?php endwhile;?>
-        <?php endif;?>
-        <?php wp_reset_postdata(); ?>
+        </div>
+        <div class="mv__image">
+          <img src="<?php echo get_template_directory_uri()?>/img/first-view-img.png" alt="" />
+        </div>
       </div>
-      <div class="news__link"><a href="">もっとみる</a></div>
     </div>
-  </div>
-</section>
 
+    <section class="case">
+      <div class="case__inner">
+        <h2 class="case__title js-in-view fade-in-up">導入実績</h2>
+        <?php
+         $term_var = get_the_terms($post->ID, 'case');
+         $related_query = new WP_Query(
+         $param = array(
+          'post_type' => 'case',
+          'orderby' => 'rand',
+          'posts_per_page' => '8',
+          'post__not_in' => array($post->ID),
+          'tax_query' => array(
+          'relation' => 'AND',
+             )
+            )
+          );
+          ?>
+            <div class="case__items">
+            <?php if ( $related_query->have_posts() ) : ?>
+            <?php while ( $related_query->have_posts() ) : ?>
+              <?php $related_query->the_post(); ?>
+              <div class="case__item"><?php the_post_thumbnail(); ?></div>
+              <?php endwhile;?>
+              <?php endif;?>
+              <?php wp_reset_postdata(); ?>
+            </div>
+           
+      </div>
+    </section>
+
+    <section class="news">
+      <div class="news__inner inner">
+        <div class="news__card">
+          <h2 class="news__title js-in-view fade-in-up">NEWS</h2>
+          <?php
+            $term_var = get_the_terms($post->ID, 'post');
+            $related_query = new WP_Query(
+            array(
+             'post_type' => 'post',
+             'posts_per_page' => '3',
+               )
+             );
+           ?>
+           
+          <div class="news__lists">
+          <?php if ( $related_query->have_posts() ) : ?>
+            <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
+            <a href="<?php the_permalink(); ?>" class="news__list news-link">
+              <div class="news-link__meta">
+                <time class="news-link__date" datetime="<?php the_time('c')?>"
+                  ><?php the_time('Y/n/j')?></time>
+                  <?php 
+                    $category = get_the_category();
+                    if($category[0]) :?>
+                <div class="news-link__label is-news <?php echo $category[0]->slug; ?>"><?php echo $category[0]->cat_name; ?></div>
+                <?php endif; ?>
+              </div>
+              <h3 class="news-link__title"><?php the_title();?></h3>
+            </a>
+            <?php endwhile;?>
+            <?php endif;?>
+            <?php wp_reset_postdata(); ?>
+          </div>
+          <div class="news__link"><a href="">もっとみる</a></div>
+        </div>
+      </div>
+    </section>
+
+    
     <div id="about" class="about">
       <div class="about__inner">
         <div class="about__title js-in-view fade-in-up">
@@ -165,9 +174,8 @@
       </div>
     </section>
 
-    
-   
     <?php get_template_part('template-parts/how-to-page'); ?>
+
     <section id="merit" class="merit">
       <div class="merit__inner inner">
         <div class="merit__title">
@@ -178,7 +186,7 @@
         </div>
         <div class="merit__boxes">
         <div class="merit__box">
-            <div class="merit-box is-reverse">
+            <div class="merit-box ">
               <div class="merit-box__content">
                 <div class="merit-box__image">
                   <img src="<?php the_field('image','124');?>" alt="" />
@@ -187,11 +195,11 @@
                   <h3 class="merit-box__head">
                     <span class="merit-box__number"><?php the_field('number','124');?></span>
                     <span class="merit-box__title">
-                    <?php the_field('title','124');?>
+                    <?php echo nl2br(get_field('title','124'));?>
                     </span>
                   </h3>
                   <p class="merit-box__text">
-                  <?php the_field('overview','124');?>
+                  <?php echo nl2br(get_field('overview','124'));?>
                   </p>
                 </div>
               </div>
@@ -207,18 +215,18 @@
                   <h3 class="merit-box__head">
                     <span class="merit-box__number"><?php the_field('number','127');?></span>
                     <span class="merit-box__title">
-                    <?php the_field('title','127');?>
+                    <?php echo nl2br(get_field('title','127'));?>
                     </span>
                   </h3>
                   <p class="merit-box__text">
-                  <?php the_field('overview','127');?>
+                  <?php echo nl2br(get_field('overview','127'));?>
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="merit__box">
-            <div class="merit-box is-reverse">
+            <div class="merit-box">
               <div class="merit-box__content">
                 <div class="merit-box__image">
                   <img src="<?php the_field('image','128');?>" alt="" />
@@ -227,11 +235,11 @@
                   <h3 class="merit-box__head">
                     <span class="merit-box__number"><?php the_field('number','128');?></span>
                     <span class="merit-box__title">
-                    <?php the_field('title','128');?>
+                    <?php echo nl2br(get_field('title','128'));?>
                     </span>
                   </h3>
                   <p class="merit-box__text">
-                  <?php the_field('overview','128');?>
+                  <?php echo nl2br(get_field('overview','128'));?>
                   </p>
                 </div>
               </div>
@@ -240,7 +248,7 @@
         </div>
       </div>
     </section>
-    
+
     <div class="cta">
       <div class="cta__inner inner">
         <p class="cat__text">
@@ -275,19 +283,19 @@
                 <th><?php the_field('title','150');?></th>
                 <td><?php the_field('whether','150');?></td>
                 <td>希望時間に起きれた毎に<br /><?php the_field('fee','150');?></td>
-                <td>希望時間に起きれた毎に<br /><?php the_field('popint','150');?></td>
+                <td>希望時間に起きれた毎に<br /><?php the_field('point','150');?></td>
               </tr>
               <tr>
                 <th><?php the_field('title','153');?></th>
                 <td><?php the_field('whether','153');?></td>
                 <td>希望時間に起きれた毎に<br /><?php the_field('fee','153');?></td>
-                <td>希望時間に起きれた毎に<br /><?php the_field('popint','153');?></td>
+                <td>希望時間に起きれた毎に<br /><?php the_field('point','153');?></td>
               </tr>
               <tr>
                 <th><?php the_field('title','156');?></th>
                 <td><?php the_field('whether','156');?></td>
                 <td><?php the_field('fee','156');?></td>
-                <td><?php the_field('popint','156');?></td>
+                <td><?php the_field('point','156');?></td>
               </tr>
             </tbody>
           </table>
@@ -305,14 +313,14 @@
           </div>
         </div>
         <div class="qa__boxes">
-          <div class="qa__box qa-box is-open">
+          <div class="qa__box qa-box ">
             <button type="button" class="qa-box__head js-accordion">
               <span class="qa-box__head-icon">Q</span>
               <span class="qa-box__head-text"
                 ><?php the_field('question','140');?></span
               >
             </button>
-            <div class="qa-box__body" style="display: block">
+            <div class="qa-box__body" >
               <div class="qa-box__a">
                 <span class="qa-box__a-icon">A</span>
                 <span class="qa-box__a-text"><?php the_field('answer','140');?></span>
@@ -370,33 +378,28 @@
             <div class="swiper-wrapper">
               <!-- Slides -->
               <div class="swiper-slide gallery__slide">
+              <?php
+                 $term_var = get_the_terms($post->ID, 'gallery');
+                 $related_query = new WP_Query(
+                 $param = array(
+                  'post_type' => 'gallery',
+                  'posts_per_page' => '1',
+                    )
+                  );
+                  ?>
                 <div class="gallery-card">
+                <?php if ( $related_query->have_posts() ) : ?>
+                   <?php while ( $related_query->have_posts() ) : ?>
+                     <?php $related_query->the_post(); ?>
                   <div class="gallery-card__image">
-                    <img src="<?php echo get_template_directory_uri()?>/img/gallery-1.png" alt="" />
+                     <?php the_post_thumbnail(); ?>
                   </div>
                   <p class="gallery-card__text">
-                    最高な海。を拝んでいる私最高...
+                  <?php the_title();?>
                   </p>
-                </div>
-              </div>
-              <div class="swiper-slide gallery__slide">
-                <div class="gallery-card">
-                  <div class="gallery-card__image">
-                    <img src="<?php echo get_template_directory_uri()?>/img/gallery-2.png" alt="" />
-                  </div>
-                  <p class="gallery-card__text">
-                    モーニングは一番のり。今日も私えらい。
-                  </p>
-                </div>
-              </div>
-              <div class="swiper-slide gallery__slide">
-                <div class="gallery-card">
-                  <div class="gallery-card__image">
-                    <img src="<?php echo get_template_directory_uri()?>/img/gallery-3.png" alt="" />
-                  </div>
-                  <p class="gallery-card__text">
-                    風車のある公園ヨガ。みんな私に釘付け。
-                  </p>
+                  <?php endwhile;?>
+                <?php endif;?>
+              <?php wp_reset_postdata(); ?>
                 </div>
               </div>
             </div>

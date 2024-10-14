@@ -376,37 +376,31 @@
           <div id="js-gallery-swiper" class="swiper gallery__swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide gallery__slide">
-                <div class="gallery-card">
-                  <div class="gallery-card__image">
-                    <img src="<?php echo get_template_directory_uri()?>/img/gallery-1.png" alt="" />
-                  </div>
-                  <p class="gallery-card__text">
-                    最高な海。を拝んでいる私最高...
-                  </p>
-                </div>
-              </div>
-              <div class="swiper-slide gallery__slide">
-                <div class="gallery-card">
-                  <div class="gallery-card__image">
-                    <img src="<?php echo get_template_directory_uri()?>/img/gallery-2.png" alt="" />
-                  </div>
-                  <p class="gallery-card__text">
-                    モーニングは一番のり。今日も私えらい。
-                  </p>
-                </div>
-              </div>
-              <div class="swiper-slide gallery__slide">
-                <div class="gallery-card">
-                  <div class="gallery-card__image">
-                    <img src="<?php echo get_template_directory_uri()?>/img/gallery-3.png" alt="" />
-                  </div>
-                  <p class="gallery-card__text">
-                    風車のある公園ヨガ。みんな私に釘付け。
-                  </p>
-                </div>
-              </div>
+               <?php
+                 $term_var = get_the_terms($post->ID, 'gallery');
+                 $related_query = new WP_Query(
+                  array(
+                  'post_type' => 'gallery',
+                  'posts_per_page' => '3',
+                    )
+                  );
+               ?>
+               <?php if ( $related_query->have_posts() ) : ?>
+                <?php while ( $related_query->have_posts() ) : $related_query->the_post();?>
+                   <!-- Slides -->
+                    <div class="swiper-slide gallery__slide">
+                      <div class="gallery-card">
+                        <div class="gallery-card__image">
+                          <?php the_post_thumbnail(); ?>
+                        </div>
+                        <p class="gallery-card__text">
+                         <?php the_title();?>
+                        </p>
+                      </div>
+                    </div>
+                <?php endwhile;?>
+               <?php endif;?>
+               <?php wp_reset_postdata(); ?>
             </div>
             <!-- If we need pagination -->
             <div
