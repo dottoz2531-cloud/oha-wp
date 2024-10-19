@@ -383,7 +383,7 @@
                  $related_query = new WP_Query(
                  $param = array(
                   'post_type' => 'gallery',
-                  'posts_per_page' => '1',
+                  'posts_per_page' => '-1',
                     )
                   );
                   ?>
