@@ -16,9 +16,7 @@
       content="OHA!は、朝起きたい人と朝起こされたい人がランダムにマッチングしちゃう通話アプリです。"
     />
     <meta property="og:type" content="website" />
-    <!-- 案件では実際のURLを入れる -->
-    <meta property="og:url" content="https://example.com/" />
-    <!-- 案件では実際のURLを入れる -->
+    <meta property="og:url" content="https://oha.dozzot.com/" />
     <meta property="og:image" content="https://example.com/img/ogp.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,16 +40,9 @@
           <a href="<?php echo home_url('/'); ?>"><img src="<?php echo get_template_directory_uri()?>/img/logo.png" alt="OHA!" /></a>
         </h1>
         <nav class="header__nav">
-          <?php
-			          wp_nav_menu(
-				        array(
-					     'depth' => 1,
-					     'theme_location' => 'global',
-					     'container' => '',
-					     'menu_class' => 'header-list'
-				     )
-			     )
-			     ?>
+          <a href="#about" class="header__link">サービスについて</a>
+          <a href="#how-to-use" class="header__link">使い方</a>
+          <a href="#merit" class="header__link">メリット</a>
           <a href="#contact" class="header__button button">お問い合わせ</a>
         </nav>
         <button id="js-drawer-icon" class="header__open drawer-icon">
@@ -64,16 +55,9 @@
 
     <div id="js-drawer-content" class="drawer-content">
       <nav class="drawer-content__menu">
-      <?php
-			          wp_nav_menu(
-				        array(
-					     'depth' => 1,
-					     'theme_location' => 'global',
-					     'container' => '',
-					     'menu_class' => 'header-list'
-				     )
-			     )
-			     ?>
+        <a href="#about" class="drawer-content__link">サービスについて</a>
+        <a href="#how-to-use" class="drawer-content__link">使い方</a>
+        <a href="#merit" class="drawer-content__link">メリット</a>
         <div class="drawer-content__button">
           <a href="#contact" class="button">お問い合わせ</a>
         </div>

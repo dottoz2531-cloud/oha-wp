@@ -28,8 +28,8 @@ const swiper = new Swiper("#js-gallery-swiper", {
 
   // Navigation arrows
   navigation: {
-    nextEl: "#js-gallery-next",
-    prevEl: "#js-gallery-prev",
+    nextEl: "#js-gallery-prev",
+    prevEl: "#js-gallery-next",
   },
 });
 
@@ -55,12 +55,12 @@ jQuery('a[href^="#"]').on("click", function (e) {
   const id = jQuery(this).attr("href");
   const target = jQuery("#" == id ? "html" : id);
   const position = jQuery(target).offset().top;
-  jQuery("html, body").animate(
+  jQuery("html , body").animate(
     {
       scrollTop: position,
     },
-    speed,
-    "swing" // swing or linear
+    1000,
+    "swing" //swing or linear
   );
 });
 
@@ -77,7 +77,7 @@ const intersectionObserver = new IntersectionObserver(function (entries) {
     if (entry.isIntersecting) {
       entry.target.classList.add("is-in-view");
     } else {
-      // entry.target.classList.remove("is-in-view");
+      entry.target.classList.remove("is-in-view");
     }
   });
 });

@@ -376,32 +376,31 @@
           <div id="js-gallery-swiper" class="swiper gallery__swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide gallery__slide">
-              <?php
+               <?php
                  $term_var = get_the_terms($post->ID, 'gallery');
                  $related_query = new WP_Query(
-                 $param = array(
+                  array(
                   'post_type' => 'gallery',
                   'posts_per_page' => '-1',
                     )
                   );
-                  ?>
-                <div class="gallery-card">
-                <?php if ( $related_query->have_posts() ) : ?>
-                   <?php while ( $related_query->have_posts() ) : ?>
-                     <?php $related_query->the_post(); ?>
-                  <div class="gallery-card__image">
-                     <?php the_post_thumbnail(); ?>
-                  </div>
-                  <p class="gallery-card__text">
-                  <?php the_title();?>
-                  </p>
-                  <?php endwhile;?>
-                <?php endif;?>
-              <?php wp_reset_postdata(); ?>
-                </div>
-              </div>
+               ?>
+               <?php if ( $related_query->have_posts() ) : ?>
+                <?php while ( $related_query->have_posts() ) : $related_query->the_post();?>
+                   <!-- Slides -->
+                    <div class="swiper-slide gallery__slide">
+                      <div class="gallery-card">
+                        <div class="gallery-card__image">
+                          <?php the_post_thumbnail(); ?>
+                        </div>
+                        <p class="gallery-card__text">
+                         <?php the_title();?>
+                        </p>
+                      </div>
+                    </div>
+                <?php endwhile;?>
+               <?php endif;?>
+               <?php wp_reset_postdata(); ?>
             </div>
             <!-- If we need pagination -->
             <div
